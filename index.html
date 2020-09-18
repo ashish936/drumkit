@@ -12,53 +12,55 @@
     <title>Drum Kit</title>
 </head>
 <body>
+
+    
     <div class="container">
 
-        <div class="row">
+        <div class="row" >
 
                 <div key-code="65" class="col key">
                     <kbd>A</kbd>
-                    <span class="sound">sound1</span>
+                    <div class="sound"><p>sound1</p></div>
                 </div>
                 
                 <div key-code="83" class="col key">
                     <kbd>S</kbd>
-                    <span class="sound">sound2</span>
+                    <div class="sound"><p>sound2</p></div>
                 </div>
         
                 <div key-code="68" class="col key">
                     <kbd>D</kbd>
-                    <span class="sound">sound3</span>
+                    <div class="sound"><p>sound3</p></div>
                 </div>
         
                 <div key-code="70" class="col key">
                     <kbd>F</kbd>
-                    <span class="sound">sound4</span>
+                    <div class="sound"><p>sound4</p></div>
                 </div>
         
                 <div key-code="71" class="col key">
                     <kbd>G</kbd>
-                    <span class="sound">sound5</span>
+                    <div class="sound"><p>sound5</p></div>
                 </div>
         
                 <div key-code="72" class="col key">
                     <kbd>H</kbd>
-                    <span class="sound">sound6</span>
+                    <div class="sound"><p>sound6</p></div>
                 </div>
         
                 <div key-code="74" class="col key">
                     <kbd>J</kbd>
-                    <span class="sound">sound7</span>
+                    <div class="sound"><p>sound7</p></div>
                 </div>
         
                 <div key-code="75" class="col key">
                     <kbd>K</kbd>
-                    <span class="sound">sound8</span>
+                    <div class="sound"><p>sound8</p></div>
                 </div>
         
                 <div key-code="76" class="col key">
                     <kbd>L</kbd>
-                    <span class="sound">sound9</span>
+                    <div class="sound"><p>sound10</p></div>
                 </div>
         
         </div>
@@ -75,6 +77,19 @@
     <audio data-key="74" src="sounds/j.mp3"></audio>
     <audio data-key="75" src="sounds/k.mp3"></audio>
     <audio data-key="76" src="sounds/l.mp3"></audio>
+
+    <script>
+        window.addEventListener('keydown', function(e) {
+            console.log(e.keyCode);
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); 
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+            if(!audio) return; //stop the function all together
+            audio.currentTime = 0;
+            audio.play();
+
+        } );
+    </script>
             
     
 </body>
