@@ -82,12 +82,13 @@
         window.addEventListener('keydown', function(e) {
             console.log(e.keyCode);
             const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); 
-            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-
+            const key = document.querySelector(`.key[key-code="${e.keyCode}"]`); 
+            
             if(!audio) return; //stop the function all together
             audio.currentTime = 0;
             audio.play();
-
+            key.classList.add("playing");
+            //key.classList.remove("new"); cannot use setTimeout fn becouse they can get out of syn because we hvae to mention time in both css and here
         } );
     </script>
             
